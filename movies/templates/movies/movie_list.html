@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Now Showing</h2>
+{% for movie in movies %}
+    <div>
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.description }}</p>
+        <a href="{% url 'showtimes' movie.id %}">View Showtimes</a>
+    </div>
+{% endfor %}
+
+</body>
+</html>
+

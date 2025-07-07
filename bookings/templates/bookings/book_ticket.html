@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Book Tickets for {{ showtime.movie.title }}</h2>
+<p>Showtime: {{ showtime.time }}</p>
+<p>Available Seats: {{ showtime.available_seats }}</p>
+
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <label>Number of Seats:</label>
+    <input type="number" name="seats" min="1" max="{{ showtime.available_seats }}">
+    <button type="submit">Book</button>
+</form>
+
+</body>
+</html>
